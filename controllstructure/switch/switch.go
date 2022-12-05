@@ -26,6 +26,21 @@ func grade(g float64) string {
 	}
 }
 
+func typeFunc(i interface{}) string {
+	switch i.(type) {
+	case int:
+		return "Int"
+	case float32, float64:
+		return "Real"
+	case string:
+		return "String"
+	case func():
+		return "Function"
+	default:
+		return "Another type"
+	}
+}
+
 func main() {
 	fmt.Println(grade(10))
 	fmt.Println(grade(7))
@@ -43,4 +58,6 @@ func main() {
 	default:
 		fmt.Println("Good Night!")
 	}
+
+	fmt.Println(typeFunc(64))
 }
